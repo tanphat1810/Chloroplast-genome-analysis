@@ -94,5 +94,7 @@ Following genome annotation, the annotated **GenBank files** are processed using
 - Detailed characteristics of **intron-containing genes**, including the **number of exons and introns, the length of each exon and intron, and the genomic coordinates and positions of each gene**.
 
 The resulting data are summarized in tabular format for downstream comparative chloroplast genome analyses.
-## 5. 
+## 5. Phylogenetic tree
+Kết quả trình tự bộ gen sau khi lắp ráp sẽ được xây dựng cây di truyền bằng công cụ 
+
 
