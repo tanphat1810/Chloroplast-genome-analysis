@@ -1,6 +1,6 @@
 # Chloroplast Genome Analysis
 
-Quy trình phân tích tổng quát bộ gen lục lạp.
+General Workflow for Chloroplast Genome Analysis.
 
 ![Chloroplast genome analysis workflow](Images/Workflow.svg)
 
@@ -65,6 +65,42 @@ get_organelle_from_reads.py \
   -R 15 \
   -k 21,45,65,85,105,127
 ```
-3. Genome annotation
+## 3. Genome annotation
+## 3. Chloroplast genome annotation and visualization
+
+The complete chloroplast genome sequence in **FASTA** format is annotated using the online tool **GeSeq v2.03**. Alternatively, **CPGAVAS2** can be used for chloroplast genome annotation. GeSeq is specifically designed for rapid annotation of organellar genomes, particularly plastid genomes, while CPGAVAS2 is an integrated platform for plastome annotation and analysis. :contentReference[oaicite:0]{index=0}
+
+The annotated chloroplast genome in **GenBank format** is subsequently used to generate a graphical chloroplast genome map using **OGDRAW v1.3.1**. OGDRAW converts genome annotations in GenBank or EMBL/ENA format into graphical organelle genome maps and supports vector outputs such as SVG and PDF. :contentReference[oaicite:1]{index=1}
+
+### Genome annotation using GeSeq
+
+GeSeq web server:
+
+```text
+https://chlorobox.mpimp-golm.mpg.de/geseq.html
+```
+
+### Alternative annotation using CPGAVAS2
+
+CPGAVAS2 web server:
+
+```text
+http://47.96.249.172:16019/analyzer/home
+```
+
+### Chloroplast genome map visualization using OGDRAW
+
+OGDRAW web server:
+
+```text
+https://chlorobox.mpimp-golm.mpg.de/OGDraw.html
+```
 File fasta sau khi được lắp ráp hoàn chỉnh sẽ được chú giải bằng công cụ trực tuyến Geseq (V2.03) hoặc có thể thay thế bằng công cụ trực tuyến CPGAVAS2.
-File kết quả chứa thông tin chú giải bộ gen lục lạp là file genbank sẽ được trực quan hóa thành bản đồ gen bằng công cụ OGDRAW (V1.3.1) 
+
+File kết quả chứa thông tin chú giải bộ gen lục lạp là file genbank sẽ được trực quan hóa thành bản đồ gen bằng công cụ OGDRAW (V1.3.1) được tích hợp trong geseq 
+
+Genbank
+https://chlorobox.mpimp-golm.mpg.de/geseq.html
+
+CPGAVAS2
+http://47.96.249.172:16019/analyzer/home
