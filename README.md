@@ -45,12 +45,11 @@ fastp \
   --thread 8
 ```
 ## 2. Chloroplast genome assembly
+The cleaned paired-end reads, including the forward and reverse reads, are used for de novo chloroplast genome assembly using **GetOrganelle v1.7.7.1**. The assembly is performed using the `embplant_pt` database, which is designed for plant plastid genomes.
 
-Các reads paired-end đã được làm sạch, bao gồm file forward và reverse, được sử dụng để lắp ráp de novo bộ gen lục lạp bằng **GetOrganelle v1.7.7.1**. Quá trình lắp ráp được thực hiện với cơ sở dữ liệu `embplant_pt`, được thiết kế cho bộ gen lục lạp của thực vật.
+GetOrganelle generates several output files, of which two main formats are used in this workflow: the assembled sequence in **FASTA** format and the assembly graph in **GFA** format.
 
-Sau quá trình lắp ráp, GetOrganelle tạo ra các file kết quả, trong đó hai định dạng chính được sử dụng trong quy trình này là file trình tự **FASTA** và file đồ thị lắp ráp **GFA**.
-
-Khi quá trình lắp ráp hoàn chỉnh, file FASTA có tên chứa `complete` thường đại diện cho trình tự bộ gen lục lạp đã được lắp ráp hoàn chỉnh và được sử dụng làm dữ liệu đầu vào cho các bước phân tích tiếp theo. File GFA được sử dụng để trực quan hóa và kiểm tra cấu trúc đồ thị lắp ráp bằng **Bandage v0.9.0**.
+When the assembly is successfully completed, the FASTA file containing complete in its filename generally represents the `complete` assembled chloroplast genome and is used as the primary input for downstream analyses. The GFA file is used to visualize and inspect the assembly graph using **Bandage v0.9.0**.
 ### Khởi động môi trường Conda
 ```bash
 conda activate getorg
