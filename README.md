@@ -82,11 +82,17 @@ CPGAVAS2 web server:
 ```text
 http://47.96.249.172:16019/analyzer/home
 ```
+## 4. Chloroplast genome feature analysis
 
-### Chloroplast genome map visualization using OGDRAW
+Following genome annotation, the annotated **GenBank files** are processed using custom **Python scripts** to summarize and analyze the structural and compositional features of the chloroplast genomes. The following characteristics are extracted:
 
-OGDRAW web server:
+- Total chloroplast genome length and the lengths of the **LSC, SSC, IRa, and IRb regions**.
+- Total **coding sequence (CDS) length** and the proportion of CDS relative to the entire genome.
+- Numbers of **protein-coding genes, tRNA genes, rRNA genes, and intron-containing genes**.
+- **GC content (%)** of the complete chloroplast genome and the **LSC, SSC, and IR regions**.
+- **AT content (%) at the first, second, and third codon positions** of the coding sequences.
+- Detailed characteristics of **intron-containing genes**, including the **number of exons and introns, the length of each exon and intron, and the genomic coordinates and positions of each gene**.
 
-```text
-https://chlorobox.mpimp-golm.mpg.de/OGDraw.html
-```
+The resulting data are summarized in tabular format for downstream comparative chloroplast genome analyses.
+## 5. 
+
