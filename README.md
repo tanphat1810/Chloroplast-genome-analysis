@@ -1,6 +1,3 @@
-# Chloroplast-genome-analysis
-Quy trình phân tích tổng quát bộ gen lục lạp 
-![Chloroplast genome analysis workflow](Images/Workflow.svg)
 # Chloroplast Genome Analysis
 
 Quy trình phân tích tổng quát bộ gen lục lạp.
@@ -21,7 +18,7 @@ fastqc \
   -o <path/to/fastqc_output_directory> \
   -t 16
 ```
-với dữ liệu pair_end
+Với dữ liệu pair_end
 ```bash
 fastqc \
   <path/to/input_R1.fastq.gz> \
@@ -51,10 +48,8 @@ fastp \
   --json <path/to/fastp_report.json> \
   --thread 8
 ```
-2. Genome assembly
-Sau đó các file Forward và Reverd sẽ được lắp ráp de novol thành bộ gen hoàng chỉnh bằng công cụ Get organelle (V1.7.7.1) với bộ dữ liệu embplant_pt (dành cho lục lạp)
-Kết quả được 2 file chính: file fasta hoàn chỉnh và file gfa.
-Thông thường kết quả fasta sẽ có dạng complete nếu lắp ráp hoàng chỉnh, đây là file kết quả chính được dùng để phân tích chính. Đồng thời file gfa sẽ được dùng để trực quan hóa dữ liệu kết quả lắp ráp bằng công cụ Bandage (V0.9.0).
+##2. Genome assembly
+Sau đó các file Forward và Reverd sẽ được lắp ráp de novol thành bộ gen hoàng chỉnh bằng công cụ Get organelle (V1.7.7.1) với bộ dữ liệu embplant_pt (dành cho lục lạp). Kết quả được 2 file chính: file fasta hoàn chỉnh và file gfa. Thông thường kết quả fasta sẽ có dạng complete nếu lắp ráp hoàng chỉnh, đây là file kết quả chính được dùng để phân tích chính. Đồng thời file gfa sẽ được dùng để trực quan hóa dữ liệu kết quả lắp ráp bằng công cụ Bandage (V0.9.0).
 3. Genome annotation
 File fasta sau khi được lắp ráp hoàn chỉnh sẽ được chú giải bằng công cụ trực tuyến Geseq (V2.03) hoặc có thể thay thế bằng công cụ trực tuyến CPGAVAS2.
 File kết quả chứa thông tin chú giải bộ gen lục lạp là file genbank sẽ được trực quan hóa thành bản đồ gen bằng công cụ OGDRAW (V1.3.1) 
