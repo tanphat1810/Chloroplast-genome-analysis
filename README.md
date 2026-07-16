@@ -850,10 +850,9 @@ In this workflow, nucleotide diversity is calculated for:
 For \(n\) aligned sequences with an analyzed alignment length of \(L\):
 
 ```math
-\pi
-=
-\frac{\displaystyle\sum_{i<j}d_{ij}}
-{\displaystyle\binom{n}{2}\times L}
+\pi =
+\frac{\sum_{i<j} d_{ij}}
+{\binom{n}{2} \times L}
 ```
 
 where:
