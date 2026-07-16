@@ -847,23 +847,18 @@ In this workflow, nucleotide diversity is calculated for:
 
 ## 8.2. Simplified Formula
 
-For \(n\) aligned sequences with an analyzed alignment length of \(L\):
+For $n$ aligned sequences with an analyzed alignment length of $L$, nucleotide diversity is calculated as follows:
 
-```math
-\pi =
-\frac{\sum_{i<j} d_{ij}}
-{\binom{n}{2} \times L}
-```
+$$\pi = \frac{2\sum_{i=1}^{n-1}\sum_{j=i+1}^{n} d_{ij}}{n(n-1)L}$$
 
 where:
 
-- \(d_{ij}\) is the number of nucleotide differences between sequences \(i\) and \(j\).
-- \(\binom{n}{2}\) is the total number of possible sequence pairs.
-- \(L\) is the number of nucleotide sites analyzed.
-- \(\pi\) is the average number of pairwise nucleotide differences per site.
+- $d_{ij}$ is the number of nucleotide differences between sequences $i$ and $j$.
+- $n(n-1)/2$ is the total number of possible sequence pairs.
+- $L$ is the number of nucleotide sites analyzed.
+- $\pi$ is the average number of pairwise nucleotide differences per site.
 
 The exact calculation may depend on how gaps, missing data, and ambiguous nucleotides are treated in the selected DnaSP settings.
-
 ## 8.3. Interpretation
 
 - **π = 0**: all analyzed sequences are identical at the included positions.
