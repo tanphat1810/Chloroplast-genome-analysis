@@ -1188,165 +1188,9 @@ The minimum repeat-length threshold should be selected consistently across all g
 | Main software | MISA | Vmatch |
 | Common application | Marker development and population genetics | Structural and evolutionary genome analysis |
 
-# 10. Comparative Chloroplast Genome Visualization Using mVISTA
+# 10. Reproducibility and Quality Control
 
-## 10.1. Overview
-
-mVISTA is used to compare complete chloroplast genome sequences and visualize sequence conservation relative to an annotated reference genome.
-
-The analysis can help identify:
-
-- Conserved coding regions.
-- Variable intergenic regions.
-- Divergent introns.
-- Potential mutation hotspots.
-- Differences among LSC, SSC, and IR regions.
-- Regions suitable for molecular-marker development.
-
-One chloroplast genome should be selected as the reference sequence. The reference should preferably have a complete and manually reviewed annotation.
-
-## 10.2. Prepare mVISTA Input Files
-
-A custom Python script, `MvistaAnnotation.py`, is used to convert an annotated GenBank file into:
-
-1. A nucleotide FASTA file.
-2. An mVISTA-compatible annotation file.
-
-```bash
-python MvistaAnnotation.py \
-  -i <path/to/input.gbf> \
-  -a <path/to/output.mvista.ann> \
-  -f <path/to/output.fasta>
-```
-
-Example:
-
-```bash
-python MvistaAnnotation.py \
-  -i BG/Annotation/CPGAVAS2/BG.gbf \
-  -a mVISTA/BG.mvista.ann \
-  -f mVISTA/BG.fasta
-```
-
-## 10.3. Command Explanation
-
-| Argument | Description |
-|---|---|
-| `python` | Runs the script using the Python interpreter |
-| `MvistaAnnotation.py` | Custom GenBank-to-mVISTA conversion script |
-| `-i` | Input annotated GenBank file |
-| `-a` | Output mVISTA annotation file |
-| `-f` | Output FASTA file |
-
-## 10.4. Input GenBank Requirements
-
-The GenBank file should contain:
-
-- A complete chloroplast genome sequence.
-- A valid `FEATURES` section.
-- Gene coordinates.
-- Strand information.
-- Gene names.
-- CDS features.
-- tRNA features.
-- rRNA features.
-- Intron and exon coordinates where applicable.
-
-The exact feature types processed depend on the implementation of `MvistaAnnotation.py`.
-
-## 10.5. Expected Outputs
-
-The command generates:
-
-```text
-mVISTA/
-├── BG.fasta
-└── BG.mvista.ann
-```
-
-### FASTA Output
-
-The FASTA file contains the complete nucleotide sequence:
-
-```fasta
->BG
-ATGCGTATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
-TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
-```
-
-### mVISTA Annotation Output
-
-A simplified annotation structure may appear as:
-
-```text
-> 1000 2500 rbcL
-1000 2500 exon
-
-< 5000 6200 ndhF
-5000 6200 exon
-```
-
-In this format:
-
-- `>` represents a feature on the forward strand.
-- `<` represents a feature on the reverse strand.
-- The first two numbers indicate start and end coordinates.
-- The final field contains the gene name.
-- Subsequent lines define exon or untranslated-region coordinates.
-
-The exact output format depends on the custom script.
-
-## 10.6. Create the Output Directory
-
-The output directory must exist before running the script.
-
-```bash
-mkdir -p mVISTA
-```
-
-## 10.7. Submit Files to mVISTA
-
-The generated FASTA and annotation files may be submitted through the mVISTA interface.
-
-Before submission:
-
-- Ensure that all genomes are in the same orientation.
-- Standardize genome starting coordinates.
-- Verify the SSC orientation.
-- Confirm that sequence names are short and informative.
-- Remove unexpected spaces or special characters from FASTA headers.
-- Ensure that the reference annotation coordinates match the reference FASTA sequence.
-
-## 10.8. Interpretation of mVISTA Results
-
-mVISTA plots generally display:
-
-- Reference gene annotations.
-- Genome coordinates.
-- Percentage sequence identity.
-- Conserved coding regions.
-- Conserved noncoding regions.
-- Regions with reduced sequence similarity.
-
-Highly variable regions may be investigated as candidates for:
-
-- DNA barcodes.
-- Species-specific markers.
-- Population-genetic markers.
-- Phylogenetic loci.
-
-However, apparent divergence may also result from:
-
-- Poor alignment.
-- Different genome orientations.
-- Annotation errors.
-- Missing sequence data.
-- Incorrect IR boundaries.
-- Structural rearrangements.
-
-# 11. Reproducibility and Quality Control
-
-## 11.1. Software Versions
+## 10.1. Software Versions
 
 The software versions used in the analysis should be recorded explicitly.
 
@@ -1367,7 +1211,7 @@ The software versions used in the analysis should be recorded explicitly.
 | MISA | 2.1 |
 | Vmatch | 2.3.1 |
 
-## 11.2. Recommended Reproducibility Records
+## 10.2. Recommended Reproducibility Records
 
 For each analysis, retain:
 
@@ -1383,7 +1227,7 @@ For each analysis, retain:
 - Reference accession numbers.
 - Analysis dates.
 
-## 11.3. Suggested Directory Structure
+## 10.3. Suggested Directory Structure
 
 ```text
 Chloroplast_Genome_Analysis/
@@ -1414,13 +1258,13 @@ Chloroplast_Genome_Analysis/
 └── Results/
 ```
 
-# 12. Recommended Methods Description
+# 11. Recommended Methods Description
 
 The following paragraph may be adapted for a manuscript:
 
 Raw paired-end reads were assessed using FastQC v0.12.1, and quality-control results were summarized using MultiQC v1.33. Adapter removal, quality trimming, and read filtering were performed using fastp v1.0.1. Cleaned reads were assembled de novo using GetOrganelle v1.7.7.1 with the embryophyte plastid database. Assembly graphs were inspected using Bandage v0.9.0. Complete chloroplast genomes were annotated using GeSeq v2.03 or CPGAVAS2, and graphical genome maps were generated using OGDRAW v1.3.1. Structural and compositional genome characteristics were summarized from the annotated GenBank files using custom Python scripts. Complete chloroplast genome sequences were aligned using MAFFT v7.490, and phylogenetic trees were reconstructed in MEGA 12 with 1,000 bootstrap replicates. Relative synonymous codon usage was calculated using CodonW v1.4.4. Selection pressure was evaluated using Ka/Ks ratios generated with KaKs_Calculator v3.0 following codon-aware alignment. Nucleotide diversity was calculated using DnaSP. Simple sequence repeats were identified using MISA v2.1, whereas long sequence repeats were detected using Vmatch v2.3.1. Comparative chloroplast genome conservation was visualized using mVISTA.
 
-# 13. References and Tool Resources
+# 12. References and Tool Resources
 
 ## Quality Control and Read Processing
 
