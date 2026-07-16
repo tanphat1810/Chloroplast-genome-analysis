@@ -108,20 +108,18 @@ RSCU =
 {\text{Số lần sử dụng trung bình của các codon đồng nghĩa}}
 $$
 
-Nếu một axit amin được mã hóa bởi \(n_i\) codon đồng nghĩa, RSCU của codon \(j\) mã hóa axit amin \(i\) được tính như sau:
+Nếu một axit amin được mã hóa bởi $n_i$ codon đồng nghĩa, RSCU của codon $j$ mã hóa axit amin $i$ được tính như sau:
 
-$$
-RSCU_{ij}
-=
+```math
+RSCU_{ij} =
 \frac{X_{ij}}
 {\frac{1}{n_i}\sum_{j=1}^{n_i}X_{ij}}
-$$
+```
 
 Trong đó:
 
-- \(X_{ij}\): số lần codon \(j\) mã hóa axit amin \(i\) xuất hiện.
-- \(n_i\): số codon đồng nghĩa của axit amin \(i\).
-
+- $X_{ij}$: số lần codon $j$ mã hóa axit amin $i$ xuất hiện.
+- $n_i$: số codon đồng nghĩa của axit amin $i$.
 ### Cách diễn giải
 
 - **RSCU = 1**: codon được sử dụng đúng bằng mức kỳ vọng nếu tất cả codon đồng nghĩa được sử dụng như nhau.
