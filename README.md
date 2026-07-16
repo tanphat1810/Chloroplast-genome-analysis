@@ -50,11 +50,11 @@ The cleaned paired-end reads, including the forward and reverse reads, are used 
 GetOrganelle generates several output files, of which two main formats are used in this workflow: the assembled sequence in **FASTA** format and the assembly graph in **GFA** format.
 
 When the assembly is successfully completed, the FASTA file containing complete in its filename generally represents the `complete` assembled chloroplast genome and is used as the primary input for downstream analyses. The GFA file is used to visualize and inspect the assembly graph using **Bandage v0.9.0**.
-### Khởi động môi trường Conda
+### Activate Conda environment
 ```bash
 conda activate getorg
 ```
-### Lắp ráp de novo bộ gen lục lạp bằng GetOrganelle
+### De novo assembly of the chloroplast genome using GetOrganelle
 ```bash
 get_organelle_from_reads.py \
   -1 <path/to/cleaned_R1.fastq.gz> \
@@ -95,6 +95,37 @@ Following genome annotation, the annotated **GenBank files** are processed using
 
 The resulting data are summarized in tabular format for downstream comparative chloroplast genome analyses.
 ## 5. Phylogenetic tree
-Kết quả trình tự bộ gen sau khi lắp ráp sẽ được xây dựng cây di truyền bằng công cụ 
+Kết quả trình tự bộ gen lục lạp sau khi lắp ráp cùng với các trình tự bộ gen lục lạp cùng chi, loài, subspecies được thu thập được căn chỉnh bằng công cụ MAFFT (V7.490) và được xây dựng cây di truyền bằng MEGA 12 với bootstrap 1000 
+## Relative Synonymous Codon Usage (RSCU)
 
+**Relative Synonymous Codon Usage (RSCU)** là **chỉ số sử dụng tương đối của các codon đồng nghĩa**, dùng để đánh giá một codon được sử dụng nhiều hay ít so với các codon khác cùng mã hóa cho một axit amin.
 
+### Công thức
+
+$$
+RSCU =
+\frac{\text{Số lần codon đó được sử dụng}}
+{\text{Số lần sử dụng trung bình của các codon đồng nghĩa}}
+$$
+
+Nếu một axit amin được mã hóa bởi \(n_i\) codon đồng nghĩa, RSCU của codon \(j\) mã hóa axit amin \(i\) được tính như sau:
+
+$$
+RSCU_{ij}
+=
+\frac{X_{ij}}
+{\frac{1}{n_i}\sum_{j=1}^{n_i}X_{ij}}
+$$
+
+Trong đó:
+
+- \(X_{ij}\): số lần codon \(j\) mã hóa axit amin \(i\) xuất hiện.
+- \(n_i\): số codon đồng nghĩa của axit amin \(i\).
+
+### Cách diễn giải
+
+- **RSCU = 1**: codon được sử dụng đúng bằng mức kỳ vọng nếu tất cả codon đồng nghĩa được sử dụng như nhau.
+- **RSCU > 1**: codon được sử dụng nhiều hơn mức kỳ vọng, tức là codon được ưu tiên sử dụng.
+- **RSCU < 1**: codon được sử dụng ít hơn mức kỳ vọng.
+- **RSCU > 1,6**: thường được xem là codon có mức độ ưu tiên sử dụng cao.
+- **RSCU < 0,6**: thường được xem là codon ít được sử dụng rõ rệt.
