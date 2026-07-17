@@ -286,16 +286,3 @@ MIT License
 ## Author
 
 Developed for chloroplast genome comparative analyses and annotation statistics.
-
-```
-
-Theo mình, README này đạt khoảng **90%**. Nếu mục tiêu là public GitHub để nhiều người dùng, mình sẽ viết thêm một phiên bản **~250–300 dòng**, bao gồm:
-- hình minh họa workflow,
-- giải thích chi tiết từng tham số (`-i`, `-o`, `-r`, ...),
-- mô tả đầy đủ từng cột của mỗi file output,
-- FAQ,
-- troubleshooting,
-- changelog,
-- ví dụ output thực tế.
-
-Đó là kiểu README thường thấy ở các repository bioinformatics được nhiều người sử dụng.
