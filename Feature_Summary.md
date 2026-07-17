@@ -159,7 +159,7 @@ pip install biopython
 ### Single genome
 
 ```bash
-python chloroplast_genome_parser.py \
+python FeatureSummary.py \
 -i genome.gbk \
 -o results/
 ```
@@ -167,7 +167,7 @@ python chloroplast_genome_parser.py \
 ### Multiple genomes
 
 ```bash
-python chloroplast_genome_parser.py \
+python FeatureSummary.py \
 -i GenBank_folder \
 -o results/
 ```
@@ -175,7 +175,7 @@ python chloroplast_genome_parser.py \
 ### Recursive search
 
 ```bash
-python chloroplast_genome_parser.py \
+python FeatureSummary.py \
 -i GenBank_folder \
 -o results/ \
 -r
